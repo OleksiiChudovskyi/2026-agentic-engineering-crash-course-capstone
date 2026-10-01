@@ -42,7 +42,7 @@ local_files/
 #dev.txt
 
 # === Logs and temp fles ===
-*.log
+#*.log
 *.pot
 *.pyc
 
