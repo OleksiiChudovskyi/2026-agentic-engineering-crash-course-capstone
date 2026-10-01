@@ -1,5 +1,4 @@
-Prompt Manager API + ClaudeCode
-
+Prompt Manager API + Agentic Engineering
 # Prompt Manager API
 
 The Prompt Manager API is a fully asynchronous RESTful API for efficient management of personal prompts.
