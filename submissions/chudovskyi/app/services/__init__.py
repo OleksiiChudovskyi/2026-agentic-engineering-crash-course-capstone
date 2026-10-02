@@ -3,7 +3,6 @@ __all__ = [
     "get_users_db",
     "get_answer_from_gemini",
     "add_prompt_to_db",
-    "build_health",
 ]
 
 from .access_tokens_db import get_access_tokens_db
@@ -12,4 +11,3 @@ from .gemini import (
     get_answer_from_gemini,
     add_prompt_to_db,
 )
-from .health import build_health
