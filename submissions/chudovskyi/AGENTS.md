@@ -19,6 +19,7 @@ Trust level 1 ("Assistant"): propose, then wait for a human decision before chan
 - Pydantic v2: access `model_fields` on the class, not the instance (the source of the one known test warning).
 - `prompts`, `categories`, `tags` are JSON:API resources (`FastAPI-JSONAPI`, `app/api/v1/prompts.py`), not plain `APIRouter` routes. Auth comes from `FastAPI Users` (`app/auth/`).
 - Schema changes need a new Alembic revision in `app/alembic/versions/`. Never edit an existing revision.
+- Index names follow `naming_convention` in `db_config.py`, not skill defaults; do not add `created_at`/`updated_at` columns without asking.
 - Settings: `APP_CONFIG__` prefix with nested keys, mode from `APP_CONFIG__ENV` (default `dev`). Add new settings under `app/config/components/`. In prod, secrets are read from `/run/secrets`.
 - When unsure about a library API, read the installed source in `.venv/` or its docs before guessing.
 
