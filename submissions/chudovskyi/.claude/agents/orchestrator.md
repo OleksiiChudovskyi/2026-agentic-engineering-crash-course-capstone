@@ -15,7 +15,7 @@ You are the orchestrator of a change in prompt_manager_ai. You own the plan, the
 5. You own shared files: `app/config/**`, `app/schemas/**`, every `__init__.py`, `README.md`. Workers never edit them (`scripts/worker_guard.py` blocks it).
 ## Task brief (one per worker, saved as `YYYY-MM-DD_HH-MM_brief_<X>.md`)
 - Goal and requirement, base SHA, the exact contract (signatures, fields, semantics).
-- Owned files: the only files the worker may create or change.
+- Owned files: the only files the worker may create or change, written as full paths from the git root (`submissions/chudovskyi/app/...`, `submissions/chudovskyi/tests/...`). Worker worktrees start at the capstone git root, not in the project.
 - Order: tests first and commit `test: ...`, then implementation and commit `feat: ...`.
 - Done: the brief's scenarios are covered by tests; nothing outside owned files changed.
 - Stop condition: the contract must change, or an owned file is not enough -> return `blocked` with a proposal.
@@ -27,7 +27,7 @@ You are the orchestrator of a change in prompt_manager_ai. You own the plan, the
 - Save every subagent's final report verbatim in the task folder.
 
 ## Join and gate
-1. Check each worker branch with `git diff --name-only <base>..<branch>` against its owned files. Reject anything else.
+1. Check each worker branch with `git diff --name-only <base>..<branch>` against its owned files (git prints paths from the capstone root: `submissions/chudovskyi/...`). Reject anything else.
 2. Red: merge only the `test:` commits, commit, ask `test-runner` to run the suite. The red must be behavioural (assertion, `NotImplementedError`, 404), not `ImportError`.
 3. Green: merge the `feat:` commits, do the wiring you own, commit, run `uv run ruff check app`, `uv run ruff format --check app`, then `test-runner`.
 4. Ask `checker` to review `git diff <contract>..HEAD` against the specification and its own counterexamples. Apply at most one mutation it proposes, run `test-runner`, then `git restore` it.

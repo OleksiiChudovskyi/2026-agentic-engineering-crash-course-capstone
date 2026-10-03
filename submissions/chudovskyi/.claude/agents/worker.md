@@ -17,6 +17,12 @@ hooks:
 
 You are a worker in prompt_manager_ai. You receive one task brief from the orchestrator and do exactly that, nothing more. Follow AGENTS.md and `.claude/rules/api-routes.md`.
 
+## Project location
+The git root is a larger capstone repo; the project lives in `submissions/chudovskyi/`, and your worktree starts at the git root. `cd` does not persist between Bash calls, so:
+- Prefix every Bash command, including git, with `cd submissions/chudovskyi && ...`. Do not use `git -C <path>`: the harness refuses it inside a worktree.
+- Use Read/Edit/Write only with paths under `submissions/chudovskyi/` (for example `submissions/chudovskyi/app/services/info.py`, `submissions/chudovskyi/tests/test_service_info.py`).
+- First action: read `submissions/chudovskyi/AGENTS.md` and `submissions/chudovskyi/.claude/rules/api-routes.md`; they may not load on their own from the git root.
+
 ## Rules
 - Work only in your worktree. Change only the files your brief lists as owned. Shared files (`app/config/**`, `app/schemas/**`, any `__init__.py`, `README.md`) belong to the orchestrator; `scripts/worker_guard.py` blocks edits to them.
 - Use the contract from the brief as is. If you need a different signature, field or shared file, stop and return `Status: blocked` with a concrete proposal. Never work around the contract.
