@@ -4,6 +4,7 @@ __all__ = [
     "get_answer_from_gemini",
     "add_prompt_to_db",
     "build_health",
+    "build_info",
 ]
 
 from .access_tokens_db import get_access_tokens_db
@@ -13,3 +14,4 @@ from .gemini import (
     add_prompt_to_db,
 )
 from .health import build_health
+from .info import build_info

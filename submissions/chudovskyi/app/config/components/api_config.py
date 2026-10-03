@@ -8,6 +8,7 @@ class ApiV1PrefixConfig(BaseModel):
     messages: str = "/messages"
     gemini: str = "/gemini"
     health: str = "/health"
+    info: str = "/info"
 
 
 class ApiPrefixConfig(BaseModel):
