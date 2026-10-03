@@ -174,6 +174,19 @@ Thanks to the **JSON:API** specification, parameters like `?filter[...]`, `?sort
     }
 ```
 
+### ℹ️ Info
+- **`GET /api/v1/info`** — Public service info (no authentication). Returns the service status, name, version, API version and uptime in seconds.
+- **Response:**
+```json
+    {
+    "status": "ok",
+    "service": "Prompt Manager",
+    "version": "1.0.0",
+    "api_version": "v1",
+    "uptime_seconds": 42.5
+    }
+```
+
 ### 🔐 Authentication & Users (`FastAPI Users`)
 - `POST /api/v1/auth/register` — Register a new account.
 - `POST /api/v1/auth/jwt/login` — Log in, get JWT token.
