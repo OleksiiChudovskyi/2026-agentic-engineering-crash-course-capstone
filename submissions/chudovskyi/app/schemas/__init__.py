@@ -12,6 +12,7 @@ __all__ = [
     "TagCreateSchema",
     "TagUpdateSchema",
     "GeminiPromptSchema",
+    "HealthRead",
 ]
 
 from .user import (
@@ -35,3 +36,4 @@ from .tag import (
     TagUpdateSchema,
 )
 from .gemini import GeminiPromptSchema
+from .health import HealthRead

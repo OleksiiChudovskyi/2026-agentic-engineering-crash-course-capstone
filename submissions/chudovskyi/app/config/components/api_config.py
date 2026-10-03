@@ -7,6 +7,7 @@ class ApiV1PrefixConfig(BaseModel):
     users: str = "/users"
     messages: str = "/messages"
     gemini: str = "/gemini"
+    health: str = "/health"
 
 
 class ApiPrefixConfig(BaseModel):

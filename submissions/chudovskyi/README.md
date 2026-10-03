@@ -162,6 +162,18 @@ Thanks to the **JSON:API** specification, parameters like `?filter[...]`, `?sort
     }
 ```
 
+### 🩺 Health
+- **`GET /api/v1/health`** — Public health check (no authentication). Returns the service status, name, version and uptime in seconds.
+- **Response:**
+```json
+    {
+    "status": "ok",
+    "service": "Prompt Manager",
+    "version": "1.0.0",
+    "uptime_seconds": 42
+    }
+```
+
 ### 🔐 Authentication & Users (`FastAPI Users`)
 - `POST /api/v1/auth/register` — Register a new account.
 - `POST /api/v1/auth/jwt/login` — Log in, get JWT token.
