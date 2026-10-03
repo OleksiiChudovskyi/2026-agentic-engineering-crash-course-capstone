@@ -12,4 +12,13 @@ def build_info(
 ) -> dict:
     """Info payload: status, service name, versions and uptime in seconds."""
 
-    raise NotImplementedError
+    if not service_name or not service_name.strip():
+        raise ValueError("service_name must not be empty")
+
+    return {
+        "status": "ok",
+        "service": service_name,
+        "version": version,
+        "api_version": api_version,
+        "uptime_seconds": now - started_at,
+    }
