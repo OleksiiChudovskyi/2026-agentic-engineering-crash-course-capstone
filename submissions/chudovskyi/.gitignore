@@ -70,3 +70,6 @@ Thumbs.db
 
 # === Ruff stuff ===
 .ruff_cache/
+
+# Claude Code worktrees for subagents
+.claude/worktrees/
